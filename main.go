@@ -9,11 +9,10 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/buraksekili/getir-task/persistence/inmemory"
-
 	"github.com/joho/godotenv"
 
 	"github.com/buraksekili/getir-task/handlers"
+	"github.com/buraksekili/getir-task/persistence/inmemory"
 	mongodb "github.com/buraksekili/getir-task/persistence/mongo"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -25,8 +24,7 @@ type config struct {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
+	if err := godotenv.Load(); err != nil {
 		log.Fatal("Error loading .env file")
 	}
 
